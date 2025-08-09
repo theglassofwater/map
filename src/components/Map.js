@@ -3,6 +3,7 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import RailwayDataLayer from './RailwayDataLayer';
 
 // Fix for default icon issue with webpack
 delete L.Icon.Default.prototype._getIconUrl;
@@ -20,6 +21,7 @@ const Map = ({ points }) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
+      <RailwayDataLayer />
       {points.map(point => (
         <Marker key={point.id} position={[point.lat, point.lng]}>
           <Tooltip>
